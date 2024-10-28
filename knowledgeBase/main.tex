@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage[czech]{babel}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{gensymb}
+\usepackage[thinc]{esdiff}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+\usepackage{amsmath}
+\usepackage{centernot}
+\DeclareQuoteAlias{german}{czech}
+\MakeOuterQuote{"}
+
+\usepackage{booktabs,xltabular}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\graphicspath{ {./images/} }
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    \textbf{Zdroj:} #2%
+  }%
+}
+\title{Calculus 2 Knowledge Base}
+\author{Jakub \textit{\{knedl1k\}} Adamec}
+
+\newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\pagenumbering{arabic}
+
+
+\section{Fourierova řada}
+\textbf{Příklad} Nalezněte Fourierovu řadu pro periodické rozšíření funkce
+
+\[
+f(t) = \begin{cases} \cos t  & \text{if } t \in [- \frac{\pi}{2}, \frac{\pi}{2}), \\
+                      0      & \text{if } t \in [\frac{\pi}{2}, \frac{3 \pi}{2}).      %
+        \end{cases}
+\]
+
+\begin{enumerate}
+    \item Určit periodu $T$ a úhlovou frekvenci $\omega$.\\
+    $T=2 \pi$, $\omega = \frac{2 \pi}{T} = \frac{2 \pi}{2 \pi} = 1$.
+    \item \textit{Optional.} Zhodnotit sudost/lichost funkce, tím vyřadit část řešení.
+    \item Spočítat $a_0$.\\
+    \[
+    a_0 = \frac{2}{T} \int_{-\frac{\pi}{2}}^{\frac{3\pi}{2}} f(t) \cdot cos(k \omega t) dt = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} cos(t) \cdot cos(0t) dt = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} cos(t) dt = [sin t]_{-\frac{\pi}{2}}^{\frac{\pi}{2}} = 0
+    \]
+    \item Spočítat $a_k$.
+    \[
+    a_k = \frac{2}{T} \int_{-\frac{\pi}{2}}^{\frac{3\pi}{2}} f(t) \cdot cos(k \omega t) dt = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} cos(t) \cdot cos(kt) dt = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 
+    \]
+    
+\end{enumerate}
+
+\section{Limity}
+
+
+\newpage
+\section{Parciální derivace}
+
+Co se zde může počítat: 
+\begin{enumerate}
+    \item derivace vůči nějaké proměnné.
+    \item spojitost funkce, spojitost parciální derivace (přes limity).
+    \item totální diferenciál.
+    \item tečná rovina.
+    \item derivace ve směru.
+    \item úhel, který svírá tečná rovina s jinou rovinou.
+\end{enumerate}
+\textbf{Příklad} Pro funkci $f(x, y) = \ln{x y^2}$ najděte parciální derivace $\diffp{f}{x}$ a $\diffp{f}{y}$ a obory jejich existence.
+
+    V bodě $a_0 = (1, 1)$ určete totální diferenciál, tečnou rovinu a derivaci ve směru $\vec{u} = (\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2})$.
+
+    Určete úhel, který svírá tečná rovina se základnou (tj. s rovinou $z=0$).
+    \begin{enumerate}
+        \item $\diffp{f}{x} = \frac{1}{x} $, $\diffp{f}{y} = \frac{2y}{x y}$.
+            $x > 0, y \neq 0$. \\ (Podmínky se určují vždy z průniku podmínek funkce a parciální derivace.)
+        \item $\nabla f(1, 1) = (1, 2)$.
+        \item $z = f(a_0) + \diffp{f}{x}(a_0) \cdot (x-x_0) + \diffp{f}{y}(a_0) \cdot (y-y_0)= 0 + 1(x-1) + 2(y-1) = x+2y-3$. \\
+        Jiný způsob výpočtu: $z = f(a_0) + 
+        \begin{pmatrix}
+            \diffp{f}{x}(a_0), \diffp{f}{y}(a_0)
+        \end{pmatrix}
+        \cdot 
+        \begin{pmatrix}
+            x-x_0 \\           
+            y-y_0
+        \end{pmatrix}
+        = x+2y-3$.\\
+        (Za $x_0$ a $y_0$ dosadím bod $a_0$, zapamatuješ si to díky indexům, nulu dosadit do nuly.)
+        \item $\diffp{f}{u}(a_0) = (1, 2) \cdot 
+        \begin{pmatrix}
+            \frac{\sqrt{2}}{2} \\           
+            -\frac{\sqrt{2}}{2}
+        \end{pmatrix} 
+        = \frac{\sqrt{2}}{2} - \sqrt{2} = -\frac{\sqrt{2}}{2}$. \\
+        (Vezmu totální diferenciál v bodě a vynásobím ho směrem $\vec{u}$. To je vše.)
+        \item Díky zadání znám první normálový vektor $\vec{n_1} = (0, 0, 1)$. Druhý pak určim z rovnice tečné roviniy z bodu 3. $\vec{n_2} = (\nabla f(a_0), -1) = (1, 2, -1)$. \\
+        $\cos{\alpha} = \frac{|\vec{n_1} \cdot \vec{n_2}|}{||{\vec{n_1}|| \cdot ||\vec{n_2}||}}$, $\alpha \in [0, \frac{\pi}{2} ]$. $\implies \alpha = \arccos{\frac{|\vec{n_1} \cdot \vec{n_2}|}{||{\vec{n_1}|| \cdot ||\vec{n_2}||}}} = \arccos{\frac{1}{1 \cdot \sqrt{6}}} \approx 65,9 \degree$.
+    \end{enumerate}
+    Více příkladů \href{https://math.fel.cvut.cz/en/people/korbemir/mat2/2022z/4.cviceni_mat2_2022_z.pdf}{zde}, případně \href{https://math.fel.cvut.cz/en/people/korbemir/mat2/2024z/5.cviceni_mat2_2024_z.pdf}{zde}.
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
