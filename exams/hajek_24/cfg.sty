@@ -1,0 +1,68 @@
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows, calc, tikzmark}
+\usepackage{tikz-qtree}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage{tabularray}
+\usepackage{bm}
+\usepackage{ragged2e} 
+\usepackage{booktabs, tabularx}
+\usepackage{makecell}
+\usepackage{nicematrix}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{forest}
+\usepackage{soul}
+
+\usepackage{utfsym} %for cross mark
+
+\newcommand\splitpage[2]{
+      \begin{minipage}[t]{0.45\textwidth}#1
+      \end{minipage}%
+      \hfill
+      \begin{minipage}[t]{0.45\textwidth}#2
+      \end{minipage}
+}
+
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\ii}[1]{\textit{#1}} % italic 
+\newcommand{\bb}[1]{\textbf{#1}} % bold 
+\newcommand{\m}[1]{$\mathbf{#1}$}
+\newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace}  % \{\} 
+
+\setlength{\parindent}{0mm} 
+\setlength{\parskip}{1.4ex}
+
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\newenvironment{closealign}{\par\centering$\displaystyle\begin{aligned}}{\end{aligned}$\par}
+\newenvironment{closeflalign}{\par\centering$\displaystyle\begin{flalign}}{\end{flalign}$\par}
+
+\newcommand{\xmark}{\usym{2613}}
+
+\newcommand*\VF[1]{\mathbf{#1}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{intersections, pgfplots.fillbetween}
+
+\makeatletter
+\renewenvironment{cases}[1][l]{\matrix@check\cases\env@cases{#1}}{\endarray\right.}
+\def\env@cases#1{%
+  \let\@ifnextchar\new@ifnextchar
+  \left\lbrace\def\arraystretch{1.2}%
+  \array{@{}#1@{\quad}l@{}}}
+\makeatother
+
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}

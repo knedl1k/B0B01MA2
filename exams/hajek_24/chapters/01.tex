@@ -1,0 +1,190 @@
+\section{Předtermín 9. ledna 2025}
+\subsection{Fourierova řada}
+Určete rozvoj periodického prodloužení funkce $f(t) = |t|$, $-1 \leq t \leq 1$, ve Fourierovu řadu.
+
+\begin{center}
+    \begin{tikzpicture}[>=latex, scale=2]
+        %x axis
+        \draw[->] (-1.5,0) -- (2.5,0) node[below] {$t$};
+        \foreach \x in {-1,1,2}
+        \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+        %y axis
+        \draw[->] (0,-0.5) -- (0,2) node[left] {$f(t)$};
+        \foreach \y in {1}
+        \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        \node[below left] at (0,0) {\footnotesize $0$};
+    
+        % Function plot (piecewise linear)
+        \draw[red, thick, domain=-1:1] plot(\x, {abs(\x)});
+        \draw[red, thick] (1, 1) -- (2, 0);
+        \draw[red, thick] (2, 0) -- (2.5, 0.5);
+        \draw[red, thick] (-1, 1) -- (-1.5, 0.5);
+    
+        % Points
+        \fill[red] (-1, 1) circle (1pt) node[above left] {};
+        \fill[red] (0, 0) circle (1pt) node[below right] {};
+        \fill[red] (1, 1) circle (1pt) node[above right] {};
+        \fill[red] (2, 0) circle (1pt) node[below right] {};
+    \end{tikzpicture}
+\end{center}
+
+Perioda rozšíření je $T = 2$, tedy $\omega = \frac{2 \pi}{2} = \pi$. Rozšíření funkce $f$ je sudé (funkce je osově 
+symetrická podle osy y), takže $b_k = 0$. Zbylé koeficienty Fourierovy řady jsou:
+\[
+a_0 = 2 \cdot \frac{2}{T} \int_{0}^{1} t \dif t = 2 \left[ \frac{t^2}{2} \right]_{0}^{1} = 1;
+\]
+
+a pro $k \geq 1$:
+\[
+a_k = \frac{2 \cdot 2}{T} \int_{0}^{1} t \cos(k \pi t) \dif t = 
+\begin{array}{|c c|}
+    u=t & v'=\cos(k \pi t) \\
+    u'=1& v=\frac{\sin(k \pi t)}{k \pi}\\
+\end{array}
+= 2 \cdot \left[ \frac{t \sin(k \pi t)}{k \pi} \right]_{0}^{1} - \frac{2}{k \pi} \int_{0}^{1} \sin(k \pi t) \dif t
+= \frac{2}{k^2 \pi^2}(\cos{k \pi} -1).
+\]
+
+A tedy 
+$
+a_k =
+\begin{cases}
+    \ 0 \text{, pro } k=2n \\
+    \ -\frac{4}{k^2 \pi^2} \text{, pro } k=2n+1, n \in \mathbb{N}
+\end{cases}
+$
+
+Protože periodické rozšíření funkce $f$ je spojité, tak Fourierova řada k němu konverguje stejnoměrně na celém $\mathbb{R}$.
+Proto můžeme napsat
+\[
+f(t) = |t| = \frac{1}{2} - \sum_{n=0}^{\infty}\frac{4}{\pi^2(2n+1)^2}\cos(2n+1)\pi t,\qquad t \in \left\langle -1, 1 \right\rangle.
+\]
+
+
+\subsection{Vzdálenost plochy od bodu}
+Jaká je vzdálenost plochy $M$: $4x^2 + y^2 - z^2 = 1$ od bodu $(0, 0, 0)$?
+
+Ke zjištění vzdálenosti od počátku $(0, 0, 0)$ vezmeme funkci $f(x, y, z) = x^2 + y^2 + z^2$, protože se čtvercem 
+vzdálenosti se lépe pracuje. Tato funkce „v nekonečnu roste do nekonečna“ (tj. splňuje podmínky o nabytí globálního 
+minima na $M$). Kandidáta na minimum můžeme opět najít metodou Lagrangeových multiplikátorů.
+
+Máme tedy $f(x,y,z) = x^2 + y^2 + z^2$ a vazbovou funkci $g(x, y, z) = 4x^2 + y^2 - z^2 - 1$. Zřejmě pro $(x, y, z) \in M$
+je $\nabla g(x, y, z) = (8x, 2y, -2z) \not= (0, 0, 0)$ (jinak by bylo $(x,y)=(0,0)$, což nesplňuje vazbovou podmínku).
+
+Pro bod $a = (x, y, z) \in M$ lokálního extrému $f$ na $M$ tak existuje $\lambda \in \mathbb{R}$, že
+$$(2x, 2y, 2z) = \nabla f(a) = \lambda \nabla g(a) = \lambda (8x, 2y, -2z)\text{.}$$
+
+Máme tak soustavu rovnic
+\begin{align}
+    2x &= 8x \lambda \rightarrow x\\
+    2y &= 2y \lambda \\
+    2z &= -2z \lambda \\
+    4x^2 + y^2 -z^2 &= 1
+\end{align}
+
+Tedy podezřelé body jsou $a_0 = (x, y, z)$
+
+\subsection{Konzervativní vektorové pole}
+Ověřte, že vektorové pole $\VF{F}(x, y, z) = (e^z + z^2 y, \cos(y) + z^2 x, xe^z + 2xyz)$ je konzervativní a 
+nalezněte jeho potenciál.
+\begin{flalign*}
+    \pder[f]{x} &= e^z + z^2 y \iff f(x, y, z) = xe^z + xyz^2 + C(y, z) & \\
+    \pder[f]{y} &= \cos(y) + z^2x \iff f(x, y, z) = xe^z + xyz^2 + \sin(y) + D(z) & \\
+    \pder[f]{z} &= xe^z + 2xyz \iff f(x, y, z) = xe^z + xyz^2 + \sin(y) + k, k \in \mathbb{R}
+\end{flalign*}
+Potenciál vektorového pole $\VF{F}$ je $f(x, y, z) = xe^z + xyz^2 + \sin(y) + k, k \in \mathbb{R}$.
+
+% TODO: doplnit zdůvodnění konzervativnosti
+
+\subsection{Dvojný integrál}
+Vypočtěte
+\[
+\int_0^1 \int_{2y}^2 e^{x^2} \dif x \dif y
+\]
+\begin{multicols}{2}
+    Prohodíme pořadí integrace na $\dif y \dif x$.
+    \begin{flalign*}
+        E\text{: } &0 \leq x \leq 2 & \\
+        &0 \leq y \leq \frac{x}{2}
+    \end{flalign*}
+
+    \columnbreak
+
+    \begin{tikzpicture}[>=latex]
+        %x axis
+        \draw[->] (-0.5,0) -- (3.5,0) node[below] {$x$};
+        \foreach \x in {1,2}
+        \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+        %y axis
+        \draw[->] (0,-0.5) -- (0,2) node[left] {$y$};
+        \foreach \y in {1}
+        \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        \node[below left] at (0,0) {\footnotesize $0$};
+    
+        % Function plot (piecewise linear)
+        \draw[name path=A, thick, domain=0:2] plot(\x, {\x/2});
+        \draw[dashed, domain=2:3] plot(\x, {\x/2}) node[right, font=\scriptsize] {$y=\frac{x}{2}$};
+        \draw[name path=B, dashed] (2, 0) -- (2, 1);
+        \draw[dashed] (2, 1) -- (0, 1);
+        \tikzfillbetween[of=A and B, on layer=bg]{yellow};
+        \node[font=\scriptsize] at (1.5,0.35) {$E$};
+    
+    \end{tikzpicture}
+
+\end{multicols}
+\[
+\int_0^2 \int_{0}^{\frac{x}{2}} e^{x^2} \dif y \dif x = \int_{0}^{2} \frac{x}{2} e^{x^2} \dif x = 
+\begin{array}{|c|}
+    u=x^2\\
+    \dif u = 2x \dif x\\
+\end{array}
+= \frac{1}{4} \int_0^4 e^u \dif u = \frac{1}{4} (e^4 - 1)\text{.}
+\]
+
+\newpage
+
+\subsection{Gaussova věta}
+Pomocí Gaussovy věty zjistěte, jaký je tok pole $\VF{F}(x, y, z) = (z^2 -x, -2xy, \frac{3z}{1+x^2})$ hranicí tělesa
+omezeného plochami $z = 4 - y^2$, $z=0$, $x=0$ a $x=3$ s vnější orientací.
+
+Ze zadání máme skoro všechny meze útvaru známé, jen si nakreslíme $z$ v závislosti na $y$, abychom zjistili meze pro $y$.
+\begin{multicols}{2}
+    \begin{tikzpicture}[>=latex]
+        %x axis
+        \draw[->] (-2.5,0) -- (2.5,0) node[below] {$y$};
+        \foreach \x in {-2, -1, 1,2}
+        \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+        %y axis
+        \draw[->] (0,-0.5) -- (0,5) node[left] {$z$};
+        \foreach \y in {1, 2, 3, 4}
+        \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        \node[below left] at (0,0) {\footnotesize $0$};
+    
+        % Function plot (piecewise linear)
+        \draw[name path=A, thick, domain=0:2] plot(\x, {4-\x^2} );
+        \draw[name path=B, thick, domain=-2:0] plot(\x, {4+\x^2} );
+        \draw[name path=C, thick, domain=-2:2] plot(0,0);
+        \tikzfillbetween[of=A and C, on layer=bg]{yellow};
+        \tikzfillbetween[of=B and C, on layer=bg]{yellow};
+        \node[font=\scriptsize] at (0.8,1.5) {$E$};
+    
+    \end{tikzpicture}
+    \columnbreak
+    \begin{flalign*}
+        E\text{: } -2 &\leq y \leq 2 & \\
+        \phantom{-}0 &\leq z \leq 4-y^2
+    \end{flalign*}
+\end{multicols}
+\[
+\iiint\limits_{(M)} div(\vec{F}) \dif \vec{S} = \int_{0}^{3} \int_{-2}^{2} \int_{0}^{4-y^2} -1 -2x + \frac{3}{1+x^2} 
+\dif z \dif y \dif x = -\int_{0}^{3} \int_{-2}^{2} 1(4-y^2) + 2x(4-y^2) - \frac{3(4-y^2)}{1+x^2} \dif y \dif x =
+\]
+
+\[
+-\int_{0}^{3} \int_{-2}^{2} 4 - y^2 + 8x -2xy^2 - \frac{12}{1+x^2} + \frac{3y^2}{1+x^2} \dif y \dif x = -\int_{0}^{3} 16 - 
+\frac{16}{3} + 32x - \frac{32x}{3} - \frac{48}{1+x^2} + \frac{16}{1+x^2} \dif x =
+\]
+
+\[
+-\int_{0}^{3} \frac{32}{3} + \frac{64x}{3} - \frac{32}{1+x^2} \dif x = -(32 + 96 - 32 \arctan(3)) = 32(\arctan(3) - 4)\text{.}
+\]
