@@ -1,4 +1,5 @@
 \section{Předtermín 9. ledna 2025}
+
 \subsection{Fourierova řada}
 Určete rozvoj periodického prodloužení funkce $f(t) = |t|$, $-1 \leq t \leq 1$, ve Fourierovu řadu.
 
@@ -6,12 +7,14 @@ Určete rozvoj periodického prodloužení funkce $f(t) = |t|$, $-1 \leq t \leq 
     \begin{tikzpicture}[>=latex, scale=2]
         %x axis
         \draw[->] (-1.5,0) -- (2.5,0) node[below] {$t$};
-        \foreach \x in {-1,1,2}
-        \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+        \foreach \x in {-1,1,2} {
+            \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+        }
         %y axis
         \draw[->] (0,-0.5) -- (0,2) node[left] {$f(t)$};
-        \foreach \y in {1}
-        \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        \foreach \y in {1} {
+            \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        }
         \node[below left] at (0,0) {\footnotesize $0$};
     
         % Function plot (piecewise linear)
