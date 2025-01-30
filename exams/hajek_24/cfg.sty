@@ -1,20 +1,19 @@
 \usepackage{tikz}
 \usetikzlibrary{automata, positioning, arrows, calc, tikzmark}
-\usepackage{tikz-qtree}
 \usepackage{amsmath,amsthm,amssymb,mathtools}
 \usepackage{tabularray}
 \usepackage{bm}
 \usepackage{ragged2e} 
-\usepackage{booktabs, tabularx}
-\usepackage{makecell}
+\usepackage{tabularx}
 \usepackage{nicematrix}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{hyperref}
-\usepackage{forest}
 \usepackage{soul}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{intersections, pgfplots.fillbetween}
 
-\usepackage{utfsym} %for cross mark
+\usepackage{hyperref}
 
 \newcommand\splitpage[2]{
       \begin{minipage}[t]{0.45\textwidth}#1
@@ -35,9 +34,6 @@
 
 \newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
 
-\newenvironment{closealign}{\par\centering$\displaystyle\begin{aligned}}{\end{aligned}$\par}
-\newenvironment{closeflalign}{\par\centering$\displaystyle\begin{flalign}}{\end{flalign}$\par}
-
 \newcommand{\xmark}{\usym{2613}}
 
 \newcommand*\VF[1]{\mathbf{#1}}
@@ -49,13 +45,10 @@
 }
 \makeatother
 
-\usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 \pgfdeclarelayer{ft}
 \pgfdeclarelayer{bg}
 \pgfsetlayers{bg,main,ft}
-\usepgfplotslibrary{fillbetween}
-\usetikzlibrary{intersections, pgfplots.fillbetween}
 
 \makeatletter
 \renewenvironment{cases}[1][l]{\matrix@check\cases\env@cases{#1}}{\endarray\right.}
