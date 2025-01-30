@@ -8,13 +8,17 @@ Mějme čtyřstěn, jenž je ohraničen souřadnicovými osami a rovinou $x+3y+3
 čtyřstěnu kvádr, tak aby byl jeho objem maximální.
 
 \subsection{Křivkový integrál}
-Vypočítejte křivkový integrál vektorového pole $\vec{F}=(2y, \arcsin y)$ na jednotkové kružnici jdoucí \\v záporném smyslu 
-z bodu $(1, 0)$ do bodu $(0,1)$.
+Vypočítejte křivkový integrál vektorového pole 
+$\vec{F} =
+\begin{pmatrix}
+    2y, & \arcsin y
+\end{pmatrix}$ na jednotkové kružnici jdoucí \\
+v záporném smyslu z bodu $(1, 0)$ do bodu $(0,1)$.
 
 \subsection{Dvojný integrál}
 Přepište následující integrál
 \[
-\int_{0}^{2} \int_{1}^{1+\sqrt{2x-x^2}} f(x,y) \dif y \dif x
+    \int_{0}^{2} \int_{1}^{1+\sqrt{2x-x^2}} f(x,y) \dif y \dif x
 \]
 \begin{enumerate}[a), noitemsep]
     \item v opačném pořadí integrace,
@@ -22,7 +26,11 @@ Přepište následující integrál
 \end{enumerate}
 
 \subsection{Gaussova věta}
-Pomocí Gaussovy věty zjistěte, jaký je tok pole $\vec{F}(x, y, z) = (-2xy^2 + z, y^3+xz, \cos(x-y))$ hranicí tělesa
-T: $\{x,y,z \in \mathbb{R}^3 \mid x^2 \geq y^2 + z^2, x \geq 0, x^2 + y^2 + z^2 \leq 1\}$.
+Pomocí Gaussovy věty zjistěte, jaký je tok pole 
+$\vec{F}(x, y, z) =
+\begin{pmatrix}
+    -2xy^2 + z, & y^3+xz, &\cos(x-y)
+\end{pmatrix}$ 
+hranicí tělesa T: $\{x,y,z \in \mathbb{R}^3 \mid x^2 \geq y^2 + z^2 \text{, } x \geq 0 \text{, } x^2 + y^2 + z^2 \leq 1\}$.
 
-% $div \vec{F} = y^2 + z^2$
+

@@ -88,8 +88,11 @@ Máme tak soustavu rovnic
 Tedy podezřelé body jsou $a_0 = (x, y, z)$
 
 \subsection{Konzervativní vektorové pole}
-Ověřte, že vektorové pole $\VF{F}(x, y, z) = (e^z + z^2 y, \cos(y) + z^2 x, xe^z + 2xyz)$ je konzervativní a 
-nalezněte jeho potenciál.
+Ověřte, že vektorové pole 
+$\vec{F}(x, y, z) =
+\begin{pmatrix}
+    e^z + z^2 y, & \cos(y) + z^2 x, & xe^z + 2xyz
+\end{pmatrix}$ je konzervativní a nalezněte jeho potenciál.
 \begin{flalign*}
     \pder[f]{x} &= e^z + z^2 y \iff f(x, y, z) = xe^z + xyz^2 + C(y, z) & \\
     \pder[f]{y} &= \cos(y) + z^2x \iff f(x, y, z) = xe^z + xyz^2 + \sin(y) + D(z) & \\
@@ -147,8 +150,12 @@ Vypočtěte
 \newpage
 
 \subsection{Gaussova věta}
-Pomocí Gaussovy věty zjistěte, jaký je tok pole $\VF{F}(x, y, z) = (z^2 -x, -2xy, \frac{3z}{1+x^2})$ hranicí tělesa
-omezeného plochami $z = 4 - y^2$, $z=0$, $x=0$ a $x=3$ s vnější orientací.
+Pomocí Gaussovy věty zjistěte, jaký je tok pole 
+$\vec{F}(x, y, z) =
+\begin{pmatrix}
+    z^2 -x, & -2xy, & \frac{3z}{1+x^2}
+\end{pmatrix}$
+hranicí tělesa \\ omezeného plochami $z = 4 - y^2$, $z=0$, $x=0$ a $x=3$ s vnější orientací.
 
 Ze zadání máme skoro všechny meze útvaru známé, jen si nakreslíme $z$ v závislosti na $y$, abychom zjistili meze pro $y$.
 \begin{multicols}{2}

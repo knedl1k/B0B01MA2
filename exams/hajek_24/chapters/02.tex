@@ -46,13 +46,17 @@ $$
 \end{itemize}
 
 \subsection{Práce síly vektorového pole}
-Ukažte, že práce síly $\vec{F} = (2xz + \sin y, x \cos y + z, x^2+y)$ podél křivky z $[0, 1, 0]$ do $[1, 0, 1]$ nezávisí
-na křivce a najděte její hodnotu.
+Ukažte, že práce síly 
+$\vec{F} = 
+\begin{pmatrix}
+    2xz + \sin y, & x \cos y + z, & x^2+y
+\end{pmatrix}$
+podél křivky z $[0, 1, 0]$ do $[1, 0, 1]$ nezávisí na křivce a najděte její hodnotu.
 
 \subsection{Dvojný integrál}
 Přepište následující integrál
 \[
-\int_{-1}^1 \int_{1 - \sqrt{1-y^2}}^{1 + \sqrt{1-y^2}} f(x, y) \dif x \dif y
+    \int_{-1}^1 \int_{1 - \sqrt{1-y^2}}^{1 + \sqrt{1-y^2}} f(x, y) \dif x \dif y
 \]
 \begin{enumerate}[a), noitemsep]
     \item v opačném pořadí integrace,
@@ -94,5 +98,10 @@ Přepište následující integrál
 
 \subsection{Stokesova věta}
 Užitím Stokesovy věty spočítejte 
-$\iint\limits_{(M)} \text{rot} \vec{F} \dif \vec{S}$, kde $\vec{F} (x, y, z) = (xy^2, -x^2 y, xyz)$ a $M$ je část plochy
-$z(x,y) = 1- x^2 - y^2$ nad rovinou $xy$ orientovaná nahoru.
+$\iint\limits_{(M)} \text{rot} \vec{F} \dif \vec{S}$, kde  
+$\vec{F} (x, y, z) =
+\begin{pmatrix}
+    xy^2, & -x^2 y, & xyz
+\end{pmatrix}$
+a $M$ je část plochy $z(x,y) = 1- x^2 - y^2$ nad rovinou $xy$ orientovaná nahoru.
+

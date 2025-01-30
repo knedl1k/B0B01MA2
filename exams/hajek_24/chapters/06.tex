@@ -13,7 +13,7 @@ na množině $M$: $2x^2 + y^2 = 6$.
 \subsection{Dvojný integrál}
 Přepište následující integrál
 \[
-\int_{-2}^{1} \int_{0}^{\sqrt{4-x^2}} f(x,y) \dif y \dif x
+    \int_{-2}^{1} \int_{0}^{\sqrt{4-x^2}} f(x,y) \dif y \dif x
 \]
 \begin{enumerate}[a), noitemsep]
     \item v opačném pořadí integrace,
@@ -33,7 +33,10 @@ Mějme křivku
 \subsection{Gaussova věta}
 Pomocí Gaussovy věty zjistěte, jaký je tok pole
 \[
-    \vec{F} (x, y, z) = (xz + y^2, yz - 2z, z^2) 
+    \vec{F} (x, y, z) =
+    \begin{pmatrix}
+        xz + y^2, & yz - 2z, & z^2
+    \end{pmatrix}
 \]
 hranicí tělesa, které je mezi rovinami $z=1$ a $z=2$ a je omezené plochou $z = \sqrt{x^2 + y^2}$. \\
 Hranice má vnější orientaci.
